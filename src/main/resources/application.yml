@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: batch-address-consult-api
+  datasource:
+    url: jdbc:postgresql://localhost:5434/addressdb
+    username: postgres
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+server:
+  error:
+    include-stacktrace: never

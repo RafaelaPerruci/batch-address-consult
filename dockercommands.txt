@@ -1,0 +1,24 @@
+
+# Criar um container com uma imagem de postgres
+
+docker run -d
+--name nome_do_container
+-e POSTGRES_USER=usuario_banco
+-e POSTGRES_PASSWORD=senha
+-e POSTGRES_DB=addressdb
+-p 5434:5432 postgres:17.5-alpine
+
+# Acessar o banco
+
+psql -h localhost -p 5434 -U postgres -d addressdb
+
+#Criar a tabela da model
+
+CREATE TABLE address(
+    id UUID primary key,
+    street varchar(100),
+    suburb varchar(50),
+    cep varchar(8),
+    city varchar(50),
+    state varchar(2),
+    date_registry TIMESTAMP);
