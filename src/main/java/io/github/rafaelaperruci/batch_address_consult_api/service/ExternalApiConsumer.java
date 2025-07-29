@@ -35,6 +35,7 @@ public class ExternalApiConsumer {
             throw new EntityNotFoundException("CEP inválido ou não encontrado: " + cep);
         }
 
+
         return addressDTO;
     }
 }

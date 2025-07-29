@@ -1,5 +1,6 @@
 package io.github.rafaelaperruci.batch_address_consult_api.model;
 
+import io.github.rafaelaperruci.batch_address_consult_api.dto.AddressDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,6 +43,14 @@ public class Address {
         this.cep = cep;
         this.city = city;
         this.state = state;
+    }
+
+    public Address(AddressDTO addressDTO) {
+        this.street = addressDTO.street();
+        this.suburb = addressDTO.suburb();
+        this.cep = addressDTO.cep();
+        this.city = addressDTO.city();
+        this.state = addressDTO.state();
     }
 
 

@@ -2,6 +2,7 @@ package io.github.rafaelaperruci.batch_address_consult_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.github.rafaelaperruci.batch_address_consult_api.model.Address;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record AddressDTO (
@@ -14,10 +15,13 @@ public record AddressDTO (
 
         String cep,
 
-        @JsonAlias("cidade")
+        @JsonAlias("localidade")
         String city,
 
         @JsonAlias("uf")
         String state
 ){
+        public AddressDTO(Address address) {
+                this(address.getStreet(), address.getSuburb(), address.getCep(), address.getCity(), address.getState());
+        }
 }
